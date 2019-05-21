@@ -78,7 +78,7 @@ function finderror() {
 function parameter_judge() {
     finderror $@
     echo ""
-    echo -e "    \033[1;42;37m 开始搜索最长字符串 \033[0m" 
+    echo -e "       \033[1;42;37m 搜索最长字符串 \033[0m" 
     if [[ -z $1 ]]; then
         startfind "."
     else
