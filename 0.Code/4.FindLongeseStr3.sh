@@ -3,7 +3,6 @@
 max=0
 strnum=0
 filenum=0
-fromwhere="没有文件"
 
 function Fliter() {
     FliterFile=$1
@@ -22,7 +21,6 @@ function findinfile() {
         if [[ max -lt cnt ]]; then
             max=${cnt}
             maxstr=$i
-            fromwhere=$1
         fi 
         strnum=$[${strnum}+1]
     done
@@ -63,25 +61,14 @@ function startfind() {
     elif [[ -d $1 ]]; then
         echo -n -e "\033[1;33m[Dir]   \033[0m" 
         echo -e "\033[1;36m$1\033[0m :"
-		
-#		for((i=0;i<=10;i++));do
-#		{
-#		    echo -en "\b"
-#		    echo -en "$i"
-#		    sleep 0.5
-#		}&
-#		done        
-		
         findindir "$1"
     fi
 
-     
     
+
     echo "一共搜寻了 $filenum 个文件，$strnum 个字符串。"
     echo -n "其中最长的字符串为："
     echo -e "\033[1;35m$maxstr\033[0m" 
-    echo -n "来自文件："
-    echo -e "\033[1;35m$fromwhere\033[0m"
     echo -n "长度为："
     echo -e "\033[1;35m$max\033[0m"
 }
@@ -111,12 +98,6 @@ function parameter_judge() {
         done
     fi
     echo ""
-
 }
 
-
-#echo -en "\033[?25l"
 parameter_judge $@
-#echo -e "\033[?25h"
-
-
