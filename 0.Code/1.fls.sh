@@ -89,7 +89,7 @@ function finderror() {
 function parameter_judge() {
     finderror $@
     if [[ -z $1 ]]; then
-        startfind "."
+        exit 1
     else
         for i in $@
         do
